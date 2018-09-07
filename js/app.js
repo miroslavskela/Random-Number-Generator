@@ -1,3 +1,6 @@
+const { UI, HttpReq } = require("./utilities.js");
+
+//get input elements
 let min = document.querySelector("#min");
 let max = document.querySelector("#max");
 let howMany = document.querySelector("#howMany");
