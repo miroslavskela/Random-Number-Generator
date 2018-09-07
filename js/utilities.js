@@ -42,8 +42,7 @@ class HttpReq {
   
       //append ul to output div
       output.appendChild(paragraph);
-      //callback to create chart
-      
+
       return output;
     }
   
@@ -66,6 +65,47 @@ class HttpReq {
       setTimeout(() => {
         document.querySelector("p").remove();
       }, 3000);
+    }
+    static displayChart(data) {
+        //remove repeating elements from array
+        const result = [];
+        data.forEach(item => {
+          if (result.indexOf(item) === -1) {
+            result.push(item);
+          }
+        });
+    
+        //how mant times some elements are repeted
+        const count = {};
+        data.forEach(element => {
+          count[element] = (count[element] || 0) + 1;
+        });
+    
+        //creating chart
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: result.sort(),
+            datasets: [
+              {
+                label: "# of repeats",
+                data: Object.values(count) // array from object
+              }
+            ]
+          },
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }
+              ]
+            }
+          }
+        });
     }
     
   }
