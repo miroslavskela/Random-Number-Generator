@@ -1,0 +1,30 @@
+{
+  "name": "random-number-generator",
+  "version": "1.0.0",
+  "description": "Mini app that generate random numbers and display it.",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify ./js/app.js -t babelify --outfile ./dist/bundle.js",
+    "watch": "watchify ./js/app.js -t babelify --outfile ./dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miroslavskela/Random-Number-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miroslavskela/Random-Number-Generator/issues"
+  },
+  "homepage": "https://github.com/miroslavskela/Random-Number-Generator#readme",
+  "dependencies": {
+    "chart.js": "^2.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.2",
+    "watchify": "^3.11.0"
+  }
+}
