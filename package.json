@@ -1,0 +1,19 @@
+{
+  "name": "random-number-generator",
+  "version": "1.0.0",
+  "description": "Mini app that generate random numbers and display it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miroslavskela/Random-Number-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miroslavskela/Random-Number-Generator/issues"
+  },
+  "homepage": "https://github.com/miroslavskela/Random-Number-Generator#readme"
+}
