@@ -13,7 +13,7 @@ class HttpReq {
 }
 
 class UI {
-  static displayContent(data, callBack) {
+  static displayContent(data) {
     //make an array from response and remove unnecessery elements
     const dataArr = Array.from(data).filter((elem, i) => {
       if (i % 2 === 0) {
@@ -46,7 +46,7 @@ class UI {
     output.appendChild(paragraph);
 
     //callback to create chart
-    callBack(dataArr);
+    this.displayChart(dataArr)
     return output;
   }
 

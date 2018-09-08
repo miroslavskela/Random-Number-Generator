@@ -22,7 +22,7 @@ button.addEventListener("click", function (e) {
   } else {
     //get request
     HttpReq.get("https://www.random.org/integers/?num=" + howMany.value + "&min=" + min.value + "&max=" + max.value + "&col=" + howMany.value + "&base=10&format=plain&rnd=new").then(function (data) {
-      return UI.displayContent(data, UI.displayChart);
+      return UI.displayContent(data);
     }).catch(function (error) {
       return UI.displayError(error.message);
     });
@@ -76,7 +76,7 @@ var UI = function () {
 
   _createClass(UI, null, [{
     key: "displayContent",
-    value: function displayContent(data, callBack) {
+    value: function displayContent(data) {
       //make an array from response and remove unnecessery elements
       var dataArr = Array.from(data).filter(function (elem, i) {
         if (i % 2 === 0) {
@@ -109,7 +109,7 @@ var UI = function () {
       output.appendChild(paragraph);
 
       //callback to create chart
-      callBack(dataArr);
+      this.displayChart(dataArr);
       return output;
     }
   }, {
