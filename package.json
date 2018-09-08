@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "browserify ./js/app.js -t babelify --outfile ./dist/bundle.js",
-    "watch": "watchify ./js/app.js -t babelify --outfile ./dist/bundle.js"
+    "watch": "watchify ./js/app.js -v -t babelify --outfile ./dist/bundle.js"
   },
   "repository": {
     "type": "git",

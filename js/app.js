@@ -19,7 +19,7 @@ button.addEventListener("click", e => {
     HttpReq.get(
       `https://www.random.org/integers/?num=${howMany.value}&min=${min.value}&max=${max.value}&col=${howMany.value}&base=10&format=plain&rnd=new`
     )
-      .then(data => UI.displayContent(data, UI.displayChart))
+      .then(data => UI.displayContent(data))
       .catch(error => UI.displayError(error.message));
   }
 
