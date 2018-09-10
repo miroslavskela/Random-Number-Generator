@@ -6,41 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My random number</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
     <link rel="stylesheet" href="./css/main.css">
 
 </head>
 
 <body>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active font-weight-bold text-light" href="#">Random Number</a>
+        </li>
+    </ul>
     <section class="container">
-        <h1>Generate random number</h1>
-        <main>
-            <div class="error"></div>
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="min">Min</label>
-                        <input type="number" class="form-control" id="min" placeholder="Min number">
+        <h1 class="text-center mt-3">Generate random number</h1>
+        <div class="row">
+            <main class="col-md-8 mx-auto mt-4">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="min">Min</label>
+                            <input type="number" class="form-control" id="min" placeholder="Min number">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="max">Max</label>
+                            <input type="number" class="form-control" id="max" placeholder="Max number">
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="max">Max</label>
-                        <input type="number" class="form-control" id="max" placeholder="Max number">
+                    <div class="form-group">
+                        <label for="howMany">How many random numbers</label>
+                        <input type="number" class="form-control" id="howMany" placeholder="How many numbers do you want to generate">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="howMany">How many random numbers</label>
-                    <input type="number" class="form-control" id="howMany" placeholder="How many numbers do you want to generate">
-                </div>
-            </form>
-                <input class="btn btn-primary" type="submit" value="Submit">
-                <div class="output"></div>
-
-                <canvas id="myChart" width="200" height="200"></canvas>
-        </main>
+                </form>
+                <div class="error text-center"></div>
+                <input class="btn btn-primary btn-block" type="submit" value="Submit">
+                <div class="output mt-4"></div>
+                <h3 class="text-center mt-3 d-none">Diagram</h3>
+                <canvas class="mt-2" id="myChart" width="200" height="200"></canvas>
+            </main>
+        </div>
     </section>
 
-    
-   
+
+
     <script src="./dist/bundle.js"></script>
 </body>
 

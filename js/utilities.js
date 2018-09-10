@@ -23,7 +23,7 @@ class UI {
 
     //display numbers
     const output = document.querySelector(".output");
-    output.classList.add("result");
+    output.classList.add("border", "border-danger", "mt-4", "p-2");
 
     //clear output
     if (output.hasChildNodes()) {
@@ -60,7 +60,7 @@ class UI {
     paragraph.textContent = error;
 
     //add class to paragraph
-    paragraph.className = "red";
+    paragraph.className = "text-danger";
 
     //append paragraph to eror div
     errorOutput.appendChild(paragraph);
@@ -86,8 +86,12 @@ class UI {
       count[element] = (count[element] || 0) + 1;
     });
 
-    //creating chart
-    var ctx = document.getElementById("myChart").getContext("2d");
+    //display h3
+    document.querySelector('h3').classList.remove("d-none")
+   
+   
+   //creating chart
+   var ctx = document.getElementById("myChart").getContext("2d");
     var myChart = new Chart(ctx, {
       type: "bar",
       data: {

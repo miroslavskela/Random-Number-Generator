@@ -86,7 +86,7 @@ var UI = function () {
 
       //display numbers
       var output = document.querySelector(".output");
-      output.classList.add("result");
+      output.classList.add("border", "border-danger", "mt-4", "p-2");
 
       //clear output
       if (output.hasChildNodes()) {
@@ -124,7 +124,7 @@ var UI = function () {
       paragraph.textContent = error;
 
       //add class to paragraph
-      paragraph.className = "red";
+      paragraph.className = "text-danger";
 
       //append paragraph to eror div
       errorOutput.appendChild(paragraph);
@@ -150,6 +150,9 @@ var UI = function () {
       data.forEach(function (element) {
         count[element] = (count[element] || 0) + 1;
       });
+
+      //display h3
+      document.querySelector('h3').classList.remove("d-none");
 
       //creating chart
       var ctx = document.getElementById("myChart").getContext("2d");
