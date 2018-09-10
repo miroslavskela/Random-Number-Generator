@@ -87,6 +87,7 @@ class UI {
     });
 
     //display h3
+    
     document.querySelector('h3').classList.remove("d-none")
    
    

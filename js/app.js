@@ -8,9 +8,6 @@ let howMany = document.querySelector("#howMany");
 const button = document.querySelector(".btn-primary");
 button.addEventListener("click", e => {
   e.preventDefault();
-
-  
-
   //check if elements are with inputs
   if (!min.value || !max.value || !howMany.value) {
     UI.displayError("All input fields are required");
