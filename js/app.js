@@ -20,8 +20,8 @@ button.addEventListener("click", e => {
     }
     console.log(data);
     //get request
-    HttpReq.get(`https://api.random.org/json-rpc/1/invoke`)
-      .then(data => console.log(data))
+    HttpReq.get(`https://www.random.org/integers/?num=${howMany.value}&min=${min.value}&max=${max.value}&col=${howMany.value}&base=10&format=plain&rnd=new`)
+      .then(data => UI.displayContent(data))
       .catch(error => UI.displayError(error.message));
   }
 

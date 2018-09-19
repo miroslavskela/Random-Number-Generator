@@ -26,8 +26,8 @@ button.addEventListener("click", function (e) {
     };
     console.log(data);
     //get request
-    HttpReq.get("https://api.random.org/json-rpc/1/invoke").then(function (data) {
-      return console.log(data);
+    HttpReq.get("https://www.random.org/integers/?num=" + howMany.value + "&min=" + min.value + "&max=" + max.value + "&col=" + howMany.value + "&base=10&format=plain&rnd=new").then(function (data) {
+      return UI.displayContent(data);
     }).catch(function (error) {
       return UI.displayError(error.message);
     });
@@ -60,27 +60,8 @@ var HttpReq = function () {
     //get request
     value: function get(url) {
       return new Promise(function (resolve, reject) {
-        fetch(url, {
-          "method": "POST",
-          body: {
-            "jsonrpc": "2.0",
-            "method": "generateIntegers",
-            "params": {
-              "apiKey": "e6a8b510-c135-443b-b614-ad1a74f8524f",
-              "n": 10,
-              "min": 1,
-              "max": 10,
-              "replacement": true,
-              "base": 10
-            },
-            "id": 17350
-          },
-
-          headers: {
-            "Content-type": "application/json-rpc"
-          }
-        }).then(function (response) {
-          return response.json();
+        fetch(url).then(function (response) {
+          return response.text();
         }).then(function (data) {
           return resolve(data);
         }).catch(function (error) {
@@ -102,7 +83,12 @@ var UI = function () {
     key: "displayContent",
     value: function displayContent(data) {
       //make an array from response and remove unnecessery elements
-      var dataArr = data.split(',');
+      var dataArr = Array.from(data).filter(function (elem, i) {
+        if (i % 2 === 0) {
+          return elem;
+        }
+      });
+      console.log(dataArr);
 
       //display numbers
       var output = document.querySelector(".output");
@@ -164,6 +150,7 @@ var UI = function () {
           result.push(item);
         }
       });
+      console.log(result);
 
       //how mant times some elements are repeted
       var count = {};
