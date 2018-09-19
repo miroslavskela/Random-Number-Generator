@@ -5,6 +5,7 @@ let min = document.querySelector("#min");
 let max = document.querySelector("#max");
 let howMany = document.querySelector("#howMany");
 
+
 const button = document.querySelector(".btn-primary");
 button.addEventListener("click", e => {
   e.preventDefault();
@@ -12,11 +13,15 @@ button.addEventListener("click", e => {
   if (!min.value || !max.value || !howMany.value) {
     UI.displayError("All input fields are required");
   } else {
+    const data = {
+      n:howMany.value,
+      min:min.value,
+      max:max.value
+    }
+    console.log(data);
     //get request
-    HttpReq.get(
-      `https://www.random.org/integers/?num=${howMany.value}&min=${min.value}&max=${max.value}&col=${howMany.value}&base=10&format=plain&rnd=new`
-    )
-      .then(data => UI.displayContent(data))
+    HttpReq.get(`https://api.random.org/json-rpc/1/invoke`)
+      .then(data => console.log(data))
       .catch(error => UI.displayError(error.message));
   }
 

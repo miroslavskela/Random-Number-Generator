@@ -4,8 +4,27 @@ class HttpReq {
   //get request
   static  get(url) {
     return new Promise((resolve, reject) => {
-      fetch(url)
-        .then(response => response.text())
+      fetch(url,{
+        "method": "POST",
+        body:{
+            "jsonrpc": "2.0",
+            "method": "generateIntegers",
+            "params": {
+                "apiKey": "e6a8b510-c135-443b-b614-ad1a74f8524f",
+                "n": 10,
+                "min": 1,
+                "max": 10,
+                "replacement": true,
+                "base": 10
+            },
+            "id": 17350
+      },
+        
+        headers: {
+          "Content-type": "application/json-rpc",
+        }
+    })
+        .then(response => response.json())
         .then(data => resolve(data))
         .catch(error => reject(error));
     });
@@ -15,11 +34,8 @@ class HttpReq {
 class UI {
   static displayContent(data) {
     //make an array from response and remove unnecessery elements
-    const dataArr = Array.from(data).filter((elem, i) => {
-      if (i % 2 === 0) {
-        return elem;
-      }
-    });
+    const dataArr = data.split(',');
+  
 
     //display numbers
     const output = document.querySelector(".output");
